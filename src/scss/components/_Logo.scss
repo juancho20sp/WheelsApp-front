@@ -1,0 +1,25 @@
+@import '../utils/mixins';
+.logo {
+  #{--logo-container-height}: 130px;
+  #{--logo-container-width}: 110px;
+
+  @include bp(md) {
+    #{--logo-container-height}: 160px;
+    #{--logo-container-width}: 130px;
+  }
+
+  @include bp(lg) {
+    #{--logo-container-height}: 260px;
+    #{--logo-container-width}: 230px;
+  }
+
+  &__container {
+    height: var(--logo-container-height);
+    width: var(--logo-container-width);
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
