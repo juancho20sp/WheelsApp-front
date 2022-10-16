@@ -1,0 +1,28 @@
+@import '../utils/mixins';
+
+.splashScreen {
+  #{--background-position}: center;
+  #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/splash-screen/SplashScreenBg_3fDNHXkt9.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665946787982');
+  #{--logo-margin-top}: 14rem;
+
+  @include bp(lg) {
+    #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/splash-screen/SplashScreenDesktop_mHecZrizy.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665950817534');
+    #{--logo-margin-top}: unset;
+  }
+
+  &__container {
+    align-items: center;
+    background-image: var(--background-url);
+    background-position: var(--background-position);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+
+    .logo {
+      margin-top: var(--logo-margin-top);
+    }
+  }
+}
