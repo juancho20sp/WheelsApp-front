@@ -1,1 +1,26 @@
 @use 'scss/all';
+
+// TODO
+// @import '../utils/mixins';
+// #{--background-position}: center;
+// #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/splash-screen/SplashScreenBg_3fDNHXkt9.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665946787982');
+// #{--logo-margin-top}: 14rem;
+
+// @include bp(md) {
+//   // #{--login-container-width}: 70vw;
+//   // #{--login-main-icon-font-size}: 7rem;
+// }
+
+// @include bp(lg) {
+//   // #{--background-position}: bottom 0px left 50px;
+//   #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/splash-screen/SplashScreenDesktop_mHecZrizy.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665950817534');
+//   #{--logo-margin-top}: unset;
+// }
+
+// @include bp(xl) {
+//   // #{--login-container-width}: 30vw;
+//   // #{--login-main-icon-font-size}: 7.5rem;
+
+// Issues
+// Sharing variables and mixins
+// https://relatablecode.com/how-to-use-global-mixins-and-variables-with-css-modules-in-react-with-sass
