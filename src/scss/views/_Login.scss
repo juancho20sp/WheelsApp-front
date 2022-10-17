@@ -1,6 +1,6 @@
 @import '../utils/mixins';
 
-.signIn {
+.login {
   #{--background-height}: 100vh;
   #{--background-position}: top;
   #{--background-repeat}: no-repeat;
@@ -18,7 +18,7 @@
   #{--content-width}: 80%;
   #{--cta-list-gap}: 20px;
   #{--footer-font-size}: 12px;
-  #{--form-background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/sign-in/signInBg_sppsLmsID.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665955203183');
+  #{--form-background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/login/loginBg_Ur2dE4CRZ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666041320969');
   #{--form-gap}: 20px;
   #{--logo-margin-top}: 14rem;
   #{--page-title-margin-bottom}: 5px;
@@ -40,8 +40,8 @@
   }
 
   @include bp(xl) {
-    #{--container-max-width}: 40vw;
-    #{--content-width}: 60%;  
+    #{--container-max-width}: 40vw;    
+    #{--content-width}: 60%;
   }
 
   &__background {
@@ -102,7 +102,7 @@
     }
 
     &--link {
-      color: $light-pink;
+      color: $dark-mustard;
     }
   }
 }
