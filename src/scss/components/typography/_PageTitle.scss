@@ -1,14 +1,16 @@
 .pageTitle {
   #{--border-color}: unset;
+  #{--container-max-width}: fit-content;
   #{--font-size}: 24px;
   #{--font-weight}: 400;
+  #{--title-border-bottom}: 4px solid var(--border-color);
 
   &__container {
-    max-width: fit-content;
+    max-width: var(--container-max-width);
   }
 
   &__title {
-    border-bottom: 4px solid var(--border-color);
+    border-bottom: var(--title-border-bottom);
     color: #f4f3f3;
     font-size: var(--font-size);
     font-weight: var(--font-weight);

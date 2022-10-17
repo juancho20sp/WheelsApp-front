@@ -1,56 +1,76 @@
-@import '../../utils/mixins';
+@import '../../utils/variables';
 
 .formField {
+  #{--children-height}: 40px;
+  #{--children-select-border-radius}: 4px;
+  #{--children-select-border}: 2px solid #cacaca;
+  #{--children-select-focus-outline}: none;
+  #{--children-select-height}: 100%;
+  #{--children-select-padding}: 0 5px;
+  #{--children-select-width}: 100%;
+  #{--children-width}: 100%;
+  #{--container-gap}: 3px;
+  #{--container-height}: 100%;
+  #{--container-width}: 100%;
+  #{--helper-font-size}: 15px;
+  #{--helper-font-weight}: 200;
+  #{--input-border-radius}: 4px;
+  #{--input-border}:  2px solid #cacaca;
+  #{--input-focus-outline}: none;
+  #{--input-height}: 40px;
+  #{--input-padding}: 0 5px;
+  #{--input-width}: 100%;
+  #{--label-font-size}: 18px;
+
   &__container {
-    width: 100%;
-    height: 100%;
-    // text-align: left;
-    display: flex;
-    // justify-content: start;
     align-items: flex-start;
+    display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: var(--container-gap);
+    height: var(--container-height);
+    width: var(--container-width);
   }
 
   &__label {
     color: $light-blue;
-    font-size: 18px;
+    font-size: var(--label-font-size);
   }
 
   &__helper {
     color: #e4e3e3;
-    font-weight: 200;
-    font-size: 15px;
+    font-size: var(--helper-font-size);
+    font-weight: var(--helper-font-weight);
   }
 
   &__input {
-    border: 2px solid #cacaca;
     background: transparent;
-    border-radius: 4px;
-    height: 40px;
-    width: 100%;
+    border-radius: var(--input-border-radius);
+    border: var(--input-border);
     color: #c5c3c3;
-    padding: 0 3px;
+    height: var(--input-height);
+    padding: var(--input-padding);
+    width: var(--input-width);
 
     &:focus {
-      outline: none;
+      outline: var(--input-focus-outline);
     }
   }
 
   &__children {
-    width: 100%;
-    height: 40px;
+    height: var(--children-height);
+    width: var(--children-width);
 
     select {
-      border: 2px solid #cacaca;
-      border-radius: 4px;
       background-color: transparent;
-      width: 100%;
-      height: 100%;
+      border-radius: var(--children-select-border-radius);
+      border: var(--children-select-border);
       color: #c5c3c3;
+      height: var(--children-select-height);
+      padding: var(--children-select-padding);
+      width: var(--children-select-width);
 
       &:focus {
-        outline: none;
+        outline: var(--children-select-focus-outline);
       }
     }
   }

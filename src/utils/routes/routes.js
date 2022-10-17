@@ -1,4 +1,4 @@
-const routes = {
+const Routes = {
   login: {
     id: 0,
     path: '/login',
@@ -16,4 +16,4 @@ const routes = {
   },
 };
 
-export default routes;
+export default Routes;

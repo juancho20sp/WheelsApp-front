@@ -1,90 +1,111 @@
 @import '../utils/mixins';
-.signIn {
-  #{--background-position}: top;
-  #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/sign-in/backgroundDesktop_TwVqAFC8R.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665955266109');
-  #{--form-background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/sign-in/signInBg_sppsLmsID.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665955203183');
 
+.signIn {
+  #{--background-height}: 100vh;
+  #{--background-position}: top;
+  #{--background-repeat}: no-repeat;
+  #{--background-size}: cover;
+  #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/sign-in/backgroundDesktop_TwVqAFC8R.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665955266109');
+  #{--background-width}: 100vw;
+  #{--container-border-radius}: unset;
+  #{--container-border}: unset;
+  #{--container-height}: 100%;
+  #{--container-max-height}: 100vh;
+  #{--container-max-width}: 100vw;
+  #{--container-width}: 100%;
+  #{--content-gap}: 25px;
+  #{--content-height}: 80%;
+  #{--content-width}: 80%;
+  #{--cta-list-gap}: 20px;
+  #{--footer-font-size}: 12px;
+  #{--form-background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/sign-in/signInBg_sppsLmsID.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665955203183');
+  #{--form-gap}: 20px;
   #{--logo-margin-top}: 14rem;
+  #{--page-title-margin-bottom}: 5px;
+  #{--section-divider-width}: 80%;
 
   @include bp(md) {
-    // #{--login-container-width}: 70vw;
-    // #{--login-main-icon-font-size}: 7rem;
+    #{--container-border-radius}: 16px;
+    #{--container-border}: 3px solid $light-pink;
+    #{--container-max-height}: 100vh;
+    #{--container-max-height}: 70vh;
+    #{--container-max-width}: 100vw;
+    #{--container-max-width}: 60vw;
+    #{--footer-font-size}: 15px;
   }
 
   @include bp(lg) {
-    // #{--background-position}: bottom 0px left 50px;
-    // #{--background-url}: url('https://ik.imagekit.io/rtlq0pen66/WheelsApp/splash-screen/SplashScreenDesktop_mHecZrizy.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665950817534');
-    // #{--logo-margin-top}: unset;
+    #{--container-max-width}: 40vw;
+    #{--content-gap}: 35px;
   }
 
   @include bp(xl) {
-    // #{--login-container-width}: 30vw;
-    // #{--login-main-icon-font-size}: 7.5rem;
+    #{--container-max-width}: 40vw;    
   }
 
   &__background {
-    border: 2px solid red;
-    height: 100vh;
-    width: 100vw;
-
-    // display: grid;
-    // place-items: center;
+    background-image: var(--background-url);
+    background-position: var(--background-position);
+    background-repeat: var(--background-repeat);
+    background-size: var(--background-size);
+    display: grid;
+    height: var(--background-height);
+    place-items: center;
+    width: var(--background-width);
   }
 
   &__container {
     background-image: var(--form-background-url);
     background-position: var(--background-position);
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    background-repeat: var(--background-size);
+    border-radius: var(--container-border-radius);
+    border: var(--container-border);
     display: grid;
+    height: var(--container-height);
+    max-height: var(--container-max-height);
+    max-width: var(--container-max-width);
     place-items: center;
-
-    border: 2px solid green;
-    height: 100%;
-    width: 100%;
+    width: var(--container-width);
   }
 
   &__content {
-    // border: 2px solid black;
-    height: 80%;
-    width: 80%;
-
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: var(--content-gap);
+    height: var(--content-height);
+    width: var(--content-width);
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--form-gap);
   }
 
   &__section-divider {
-    // margin-top: 10px;
-    width: 80%;
     align-self: center;
+    width: var(--section-divider-width);
   }
 
   &__cta-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--cta-list-gap);
   }
 
   &__footer {
-    font-size: 12px;
+    font-size: var(--footer-font-size);
+    
     &--text {
       color: #dfdfdf;
     }
 
     &--link {
-      color: $lightPink;
+      color: $light-pink;
     }
   }
 }
 
 .pageTitle__title {
-  margin-bottom: 5px;
+  margin-bottom: var(--page-title-margin-bottom);
 }
