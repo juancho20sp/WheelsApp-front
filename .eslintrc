@@ -27,6 +27,7 @@
     "quotes": ["error", "single"],
     "react/display-name": 1,
     "react/jsx-uses-vars": 1,
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "semi": [2, "always"]
   }

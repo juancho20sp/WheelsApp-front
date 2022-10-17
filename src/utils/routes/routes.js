@@ -9,6 +9,11 @@ const routes = {
     path: '/',
     name: 'home',
   },
+  signIn: {
+    id: 2,
+    path: '/sign-in',
+    name: 'sign-in',
+  },
 };
 
 export default routes;

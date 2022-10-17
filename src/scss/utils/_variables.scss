@@ -13,3 +13,11 @@ $light-pink: #e93068;
 $dark-mustard: #ff9b05;
 $light-blue: #3fbce3;
 $dark-blue: #3c7c97;
+
+:export {
+  darkPink: $dark-pink;
+  lightPink: $light-pink;
+  darkMustard: $dark-mustard;
+  lightBlue: $light-blue;
+  darkBlue: $dark-blue;
+}

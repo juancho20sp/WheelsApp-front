@@ -1,0 +1,16 @@
+.pageTitle {
+  #{--border-color}: unset;
+  #{--font-size}: 24px;
+  #{--font-weight}: 400;
+
+  &__container {
+    max-width: fit-content;
+  }
+
+  &__title {
+    border-bottom: 4px solid var(--border-color);
+    color: #f4f3f3;
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+  }
+}

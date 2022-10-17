@@ -1,18 +1,18 @@
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Test } from './views';
-// Redux
-// import { useSelector } from 'react-redux';
+import { Routes as UserRoutes } from './utils/routes';
+
+// Views
+import { Test, SignIn } from './views';
 
 function App() {
-  // const state = useSelector((state) => state.login);
-
   return (
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/' element={<Test />}></Route>
+          <Route exact path={UserRoutes.home.path} element={<Test />}></Route>
+          <Route exact path={UserRoutes.signIn.path} element={<SignIn />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
