@@ -21,5 +21,11 @@
     font-weight: bold;
     height: inherit;
     width: inherit;
+
+    &:hover {
+      border: 1px solid black;
+      color: #000000; 
+      cursor: pointer;
+    }
   }
 }

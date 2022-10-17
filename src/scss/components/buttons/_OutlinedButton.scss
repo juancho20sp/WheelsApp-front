@@ -20,5 +20,11 @@
     font-size: var(--button-font-size);
     height: inherit;
     width: inherit;
+
+    &:hover {
+      background-color: var(--color);
+      color: #000000; 
+      cursor: pointer;
+    }
   }
 }
