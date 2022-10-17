@@ -1,0 +1,25 @@
+.filledButton {
+  #{--button-background-color}: unset;
+  #{--button-border-radius}: 4px;
+  #{--button-font-size}: 17px;
+  #{--button-height}: inherit;
+  #{--color}: #ffffff;
+  #{--container-height}: 45px;
+  #{--container-width}: 100%;
+
+  &__container {
+    height: var(--container-height);
+    width: var(--container-width);
+  }
+
+  button {
+    background-color: var(--button-background-color);
+    border-radius: var(--button-border-radius);
+    border: unset;
+    color: var(--color);
+    font-size: var(--button-font-size);
+    font-weight: bold;
+    height: inherit;
+    width: inherit;
+  }
+}

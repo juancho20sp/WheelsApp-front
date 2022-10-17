@@ -4,7 +4,7 @@ import React from 'react';
 import colors from '../scss/utils/_variables.scss';
 
 // Components
-import { PageTitle, FormField, OutlinedButton } from '../components/';
+import { PageTitle, FormField, FilledButton } from '../components/';
 
 const Login = () => {
   return (
@@ -19,8 +19,7 @@ const Login = () => {
             </form>
             <hr className='login__section-divider' />
             <div className='login__cta-list'>
-              <OutlinedButton text='Registrar como conductor' color={colors.darkMustard} />
-              <OutlinedButton text='Registrar como pasajero' color='#dAdAdA' />
+              <FilledButton text='Ingresar' color={colors?.lightPink} />
             </div>
 
             <div className='login__footer'>
