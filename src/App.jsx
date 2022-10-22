@@ -1,7 +1,7 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Routes as UserRoutes } from './utils';
+import { UserRoutes } from './utils/';
 
 // Views
 import { Test, SignIn, Login, HomePassenger } from './views';

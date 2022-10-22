@@ -1,0 +1,25 @@
+@import '../../utils/mixins';
+.navigation {
+  #{--burger-menu-display}: none;
+  #{--mobile-menu-display}: block;
+
+  @include bp(md) {
+    #{--burger-menu-display}: block;
+    #{--mobile-menu-display}: none;
+  }
+
+  .bm-burger-button {
+    display: var(--burger-menu-display);
+  }
+
+  .mobileMenu {
+    display: var(--mobile-menu-display);
+  }
+
+  &__container {
+    background-color: red;
+    border: 2px solid blue;
+
+    height: 100vh;
+  }
+}

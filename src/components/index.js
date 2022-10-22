@@ -3,4 +3,7 @@ export { default as PageTitle } from './typography/PageTitle';
 export { default as FormField } from './forms/FormField';
 export { default as OutlinedButton } from './buttons/OutlinedButton';
 export { default as FilledButton } from './buttons/FilledButton';
-export { default as Navbar } from './common/Navbar';
+export { default as Navigation } from './navigation/Navigation';
+export { default as BurgerMenu } from './navigation/BurgerMenu';
+export { default as MobileMenu } from './navigation/MobileMenu';
+export { default as NavigationIcon } from './icons/NavigationIcon';
