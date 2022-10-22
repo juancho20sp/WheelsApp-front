@@ -1,13 +1,23 @@
 .navigationIcon {
+  #{--icon-color}: #898989;
+  #{--font-color}: #898989;
+  
   &__container {
-    border: 2px solid black;
+    color: var(--font-color);
+    padding: 2px 0;
   }
-}
 
-.test {
-  fill: green;
+  &__text {
+    font-size: 11px;
+  }
 
-  & > path {
-    fill: green;
+  .mobileMenu__icon {
+    height: 22px;
+    stroke: var(--icon-color);
+    width: 22px;
+    
+    &--user {
+      fill: var(--icon-color);
+    }
   }
 }

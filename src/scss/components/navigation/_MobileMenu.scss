@@ -1,0 +1,11 @@
+.mobileMenu {
+    #{--background-color}: #f8f8f8;
+
+    background-color: var(--background-color);
+
+    &__list {
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+    }
+}

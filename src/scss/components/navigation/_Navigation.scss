@@ -1,4 +1,5 @@
 @import '../../utils/mixins';
+
 .navigation {
   #{--burger-menu-display}: none;
   #{--mobile-menu-display}: block;
@@ -17,9 +18,11 @@
   }
 
   &__container {
-    background-color: red;
-    border: 2px solid blue;
-
-    height: 100vh;
+    bottom: 0;
+    height: fit-content;
+    left: 0;
+    position: fixed;
+    right: 100;
+    width: 100%;
   }
 }

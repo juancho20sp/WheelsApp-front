@@ -5,10 +5,10 @@ import { BurgerMenu, MobileMenu } from '..';
 
 const Navigation = () => {
   return (
-    <nav className='navigation navigation__container'>
+    <div className='navigation navigation__container'>
       <BurgerMenu />
       <MobileMenu />
-    </nav>
+    </div>
   );
 };
 

@@ -2,10 +2,6 @@
   &__container {
     height: 100vh;
     width: 100vw;
-
-    display: grid;
-    // Mobile
-    grid-template-rows: 1fr 15%;
-    background-color: aquamarine;
+    background-color: blue;
   }
 }

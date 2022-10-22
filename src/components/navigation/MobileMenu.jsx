@@ -11,18 +11,18 @@ import { FiSettings } from 'react-icons/fi';
 const MobileMenu = () => {
   return (
     <nav className='mobileMenu mobileMenu__container'>
-      <ul>
+      <ul className='mobileMenu__list'>
         <li>
-          <NavigationIcon icon={<IoHomeOutline className='test' />} text='text' />
+          <NavigationIcon icon={<IoHomeOutline className='mobileMenu__icon' />} text='Home' />
         </li>
         <li>
-          <FaRegUser />
+          <NavigationIcon icon={<FaRegUser className='mobileMenu__icon mobileMenu__icon--user' />} text='Perfil' />
         </li>
         <li>
-          <IoRefreshOutline />
+          <NavigationIcon icon={<IoRefreshOutline className='mobileMenu__icon' />} text='Historial' />
         </li>
         <li>
-          <FiSettings />
+          <NavigationIcon icon={<FiSettings className='mobileMenu__icon' />} text='Settings' />
         </li>
       </ul>
     </nav>
