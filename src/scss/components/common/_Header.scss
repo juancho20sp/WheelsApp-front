@@ -1,0 +1,36 @@
+@import '../../utils/mixins';
+
+.header {
+    #{--background-color}: $dark-blue;
+    #{--border-color}: unset;
+    #{--container-height}: 4rem;
+    #{--container-justify-content}: center;
+    #{--title-font-color}: #fff;
+    #{--title-font-size}: 25px;
+    #{--title-margin-inline-start}: unset;
+    #{--title-padding-block-end}: 3px;
+    #{--title-padding-inline-end}: 15px;
+
+    @include bp(md) {
+        #{--container-justify-content}: flex-start;
+        #{--title-margin-inline-start}: 7rem;
+    }
+
+    &__container {
+        align-items: center;
+        background-color: var(--background-color);
+        display: flex;
+        height: var(--container-height);
+        justify-content: var(--container-justify-content);
+    }
+
+    &__title {
+        border-bottom: 2px solid var(--border-color);
+        color: var(--title-font-color);
+        font-size: var(--title-font-size);
+        margin-inline-start: var(--title-margin-inline-start);
+        padding-block-end: var(--title-padding-block-end);
+        padding-inline-end: var(--title-padding-inline-end);
+        width: fit-content;
+    }
+}

@@ -7,3 +7,4 @@ export { default as Navigation } from './navigation/Navigation';
 export { default as BurgerMenu } from './navigation/BurgerMenu';
 export { default as MobileMenu } from './navigation/MobileMenu';
 export { default as NavigationIcon } from './icons/NavigationIcon';
+export { default as Header } from './common/Header';
