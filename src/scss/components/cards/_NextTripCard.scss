@@ -1,0 +1,152 @@
+@import '../../utils/mixins';
+
+.nextTripCard {    
+    #{--car-model-font-size}: 12px;
+    #{--container-background-color}: #fff;
+    #{--container-border-radius}: 8px;
+    #{--container-max-width}: unset;
+    #{--container-padding}: 5px;
+    #{--date-font-size}: 15px;
+    #{--date-font-weight}: lighter;
+    #{--date-margin}: 5px 0;
+    #{--driver-name-font-size}: 14px;
+    #{--driver-name-font-weight}: 600;
+    #{--footer-gap}: 5px;
+    #{--footer-padding}: 5px;
+    #{--header-border-color}: #545454;
+    #{--main-border-color}: #545454;
+    #{--main-padding}: 5px;
+    #{--stops-list-item-font-size}: 12px;
+    #{--stops-seats-available-border-radius}: 4px;
+    #{--stops-seats-available-color}: $light-pink;
+    #{--stops-seats-available-font-size}: 11px;
+    #{--stops-seats-available-font-weight}: lighter;
+    #{--stops-seats-available-padding}: 3px;
+    #{--stops-title-font-size}: 14px;
+    #{--stops-title-font-weight}: 600;
+    #{--title-font-size}: 20px;
+    #{--title-font-weight}: 600;
+
+    @include bp(md) {
+        #{--car-model-font-size}: 12px;
+        #{--container-max-width}: 95%;
+        #{--date-font-size}: 17px;
+        #{--driver-name-font-size}: 16px;
+        #{--stops-list-item-font-size}: 14px;
+        #{--stops-seats-available-font-size}: 13px;
+        #{--stops-title-font-size}: 16px;
+        #{--title-font-size}: 22px;
+    }
+
+    @include bp(lg) {
+        #{--car-model-font-size}: 14px;
+        #{--container-max-width}: 75%;
+        #{--date-font-size}: 19px;
+        #{--driver-name-font-size}: 18px;
+        #{--stops-list-item-font-size}: 16px;
+        #{--stops-seats-available-font-size}: 15px;
+        #{--stops-title-font-size}: 18px;
+        #{--title-font-size}: 24px;
+
+    }
+
+    @include bp(xl) {
+        #{--container-max-width}: 70%;
+    }
+
+    &__container {
+        background-color: var(--container-background-color);
+        border-radius: var(--container-border-radius);
+        max-width: var(--container-max-width);
+        padding: var(--container-padding);
+    }
+
+    &__title {
+        font-size: var(--title-font-size);
+        font-weight: var(--title-font-weight);
+        text-align: start;
+    }
+
+    &__date {
+        font-size: var(--date-font-size);
+        font-weight: var(--date-font-weight);
+        margin: var(--date-margin);
+        text-align: start;
+    }
+
+    &__header {
+        border-bottom: 1px solid var(--header-border-color);
+    }
+
+    &__main {
+        border-bottom: 1px solid var(--header-border-color);
+        padding: var(--main-padding);
+    }
+
+    &__stops--info-container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__stops--title {
+        font-size: var(--stops-title-font-size);
+        font-weight: var(--stops-title-font-weight);
+    }
+
+    &__stops--seats-available {
+        border-radius: var(--stops-seats-available-border-radius);
+        border: 1px solid var(--stops-seats-available-color);
+        color: var(--stops-seats-available-color);
+        font-size: var(--stops-seats-available-font-size);
+        font-weight: var(--stops-seats-available-font-weight);
+        padding: var(--stops-seats-available-padding);
+    }
+
+    &__stops--list {
+        list-style: none;
+    }
+
+    &__stops--list-item {
+        font-size: var(--stops-list-item-font-size);
+        text-align: start;
+    }
+
+    &__footer {
+        align-items: center;
+        display: flex;
+        gap: var(--footer-gap);
+        justify-content: space-evenly;
+        padding: var(--footer-padding);
+    }
+
+    &__driver--info-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    &__driver--info {
+        display: flex;
+        gap: 2px;
+
+        &__name {
+            font-size: var(--driver-name-font-size);
+            font-weight: var(--driver-name-font-weight);
+        }
+        
+        &__stars {
+            font-size: var(--driver-name-font-size);
+            font-weight: var(--driver-name-font-weight);
+        }
+
+        &__model {
+            font-size: var(--car-model-font-size);
+        }
+
+        &__plate {
+            font-size: var(--car-model-font-size);
+        }
+    }
+}

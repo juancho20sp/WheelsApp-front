@@ -1,5 +1,37 @@
+@import '../utils/mixins';
+
 .homePassenger {
+    #{--container-background-color}: #e0e0e0;
+    #{--container-height}: 100%;
+    #{--content-border-radius}: 16px;
+    #{--content-max-width}: unset;
+
+    @include bp(md) {
+        #{--container-max-width}: 70vw;
+    }
+
+    @include bp(lg) {
+        #{--container-max-width}: 60vw;
+    }
+
+    @include bp(xl) {
+        #{--container-max-width}: 50vw;
+    }
+
+
     &__container {
-        background-color: papayawhip;
+        background-color: var(--container-background-color);
+        height: var(--container-height);
+    }
+
+    &__content {
+        border-radius: var(--content-border-radius);
+        border: 2px solid $light-pink;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: var(--container-max-width);
     }
 }

@@ -8,3 +8,7 @@
 @use './icons/NavigationIcon';
 @use './navigation/MobileMenu';
 @use './common/Header';
+@use './cards/NextTripCard';
+@use './common/NextTrips';
+@use './common/PassedTrips';
+@use './cards/PassedTripCard';

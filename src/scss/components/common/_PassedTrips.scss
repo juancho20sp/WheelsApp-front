@@ -1,0 +1,20 @@
+.passedTrips {
+    #{--container-margin-block-start}: 20px;
+    #{--container-width}: 80%;
+    #{--title-font-color}: #353535;
+    #{--title-font-size}: 20px;
+    #{--title-margin-block-end}: 5px;
+
+    &__container {
+        border: 2px solid var(--container-border-color);
+        margin-block-start: var(--container-margin-block-start);
+        width: var(--container-width);
+    }
+
+    &__title {
+        color: var(--title-font-color);
+        font-size: var(--title-font-size);
+        margin-block-end: var(--title-margin-block-end);
+        text-align: start;
+    }
+}

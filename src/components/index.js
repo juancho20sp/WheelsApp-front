@@ -8,3 +8,7 @@ export { default as BurgerMenu } from './navigation/BurgerMenu';
 export { default as MobileMenu } from './navigation/MobileMenu';
 export { default as NavigationIcon } from './icons/NavigationIcon';
 export { default as Header } from './common/Header';
+export { default as NextTripCard } from './cards/NextTripCard';
+export { default as NextTrips } from './common/NextTrips';
+export { default as PassedTrips } from './common/PassedTrips';
+export { default as PassedTripCard } from './cards/PassedTripCard';

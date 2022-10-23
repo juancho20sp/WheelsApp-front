@@ -4,20 +4,18 @@ import React from 'react';
 import { Layout } from './';
 
 // Components
-import { Header } from '../components';
+import { Header, NextTrips, PassedTrips } from '../components';
 
 const HomePassenger = () => {
   return (
     <Layout>
       <main className='homePassenger homePassenger__container'>
         <Header text='Home Pasajero' />
-        <p>home passenger</p>
-        {/* layout */}
-        {/* layout -> solo el footer */}
-        {/* Page title */}
-        {/* main content */}
-        {/* footer */}
-        {/* layout */}
+
+        <div className='homePassenger__content'>
+          <NextTrips />
+          <PassedTrips />
+        </div>
       </main>
     </Layout>
   );
