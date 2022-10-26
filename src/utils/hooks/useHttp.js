@@ -6,7 +6,6 @@ const useHttp = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                mode: 'no-cors',
                 body: JSON.stringify(data)
             });
 

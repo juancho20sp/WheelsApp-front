@@ -1,0 +1,20 @@
+@import '../../utils/mixins';
+
+.ReactModal__Overlay {
+    background-color: rgba($color: #000000, $alpha: 0.5) !important;
+}
+
+.ReactModal__Content {
+    #{--modal-content-width}: unset;
+  
+    @include bp(md) {
+      #{--modal-content-width}: 60vw;
+    }
+    
+    @include bp(lg) {
+      #{--modal-content-width}: 50vw; 
+    }
+    
+    margin: 0 auto;
+    width: var(--modal-content-width);
+  }

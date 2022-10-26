@@ -41,7 +41,7 @@
 
   @include bp(xl) {
     #{--container-max-width}: 40vw;
-    #{--content-width}: 60%;  
+    #{--content-width}: 60%;
   }
 
   &__background {
@@ -96,7 +96,7 @@
 
   &__footer {
     font-size: var(--footer-font-size);
-    
+
     &--text {
       color: #dfdfdf;
     }
@@ -114,4 +114,55 @@
 
 .pageTitle__title {
   margin-bottom: var(--page-title-margin-bottom);
+}
+
+.signUp__content--modal {
+  #{--content-gap}: 15px;
+  #{--content-height}: 80%;
+  #{--content-width}: 80%;
+  #{--form-gap}: 15px;
+  #{--form-height}: 100%;
+  #{--modal-close-font-size}: 1.6rem;
+  #{--modal-font-color}: #000;
+  #{--section-divider-with}: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+
+  .signUp__section-divider {
+    align-self: center;
+    border: 1px solid rgba($color: #000000, $alpha: 0.5);
+    width: var(--section-divider-with);
+  }
+
+  .signUp__form--modal {
+    color: var(--modal-font-color);
+    display: grid;
+    gap: var(--form-gap);
+    height: var(--form-height);
+
+    &__close {
+      align-self: flex-end;
+      font-size: var(--modal-close-font-size);
+      justify-self: flex-end;
+
+      &:hover {
+        cursor: pointer;
+        fill: $light-pink;
+      }
+    }
+
+    .formField__label {
+      color: var(--modal-font-color);
+    }
+
+    .formField__helper {
+      color: rgba($color: #000, $alpha: 0.7);
+    }
+
+    .formField__input {
+      color: var(--modal-font-color);
+    }
+  }
 }
