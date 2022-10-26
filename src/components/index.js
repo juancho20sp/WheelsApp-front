@@ -13,3 +13,5 @@ export { default as NextTrips } from './common/NextTrips';
 export { default as PassedTrips } from './common/PassedTrips';
 export { default as PassedTripCard } from './cards/PassedTripCard';
 export { default as ProfileHeader } from './common/ProfileHeader';
+export { default as ProtectedRoute } from './navigation/ProtectedRoute';
+export { default as UnprotectedRoute } from './navigation/UnprotectedRoute';

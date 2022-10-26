@@ -5,3 +5,4 @@ export { default as Login } from './Login';
 export { default as HomePassenger } from './HomePassenger';
 export { default as Layout } from './Layout';
 export { default as Profile } from './Profile';
+export { default as PageNotFound } from './PageNotFound';
