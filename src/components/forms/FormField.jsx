@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormField = ({ label = '', helper = '', type = 'text', value = '', isDisabled = false, children }) => {
+const FormField = ({ label = '', helper = '', type = 'text', value = '', isDisabled = false, changeHandler = '', children }) => {
   return (
     <div className='formField formField__container'>
       <label className='formField__label' htmlFor={label}>
@@ -13,7 +13,7 @@ const FormField = ({ label = '', helper = '', type = 'text', value = '', isDisab
       {children ? (
         <div className='formField__children'>{children}</div>
       ) : (
-        <input className='formField__input' defaultValue={value} type={type} name={label} id={label} disabled={isDisabled}/>
+        <input className='formField__input' defaultValue={value} type={type} name={label} id={label} disabled={isDisabled} onChange={(e) => changeHandler ? changeHandler(e) : ''}/>
       )}
     </div>
   );
