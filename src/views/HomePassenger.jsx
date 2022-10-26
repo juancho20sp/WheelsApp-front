@@ -7,7 +7,7 @@ import { Layout } from './';
 import { Header, NextTrips, PassedTrips } from '../components';
 
 const HomePassenger = () => {
-  return (
+  return ( 
     <Layout>
       <main className='homePassenger homePassenger__container'>
         <Header text='Home Pasajero' />

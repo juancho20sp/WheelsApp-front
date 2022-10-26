@@ -5,9 +5,14 @@
     #{--container-height}: 100%;
     #{--content-border-radius}: 16px;
     #{--content-max-width}: unset;
+    #{--content-border}: unset;
+    #{--content-margin-top}: 1rem;
+    #{--content-padding}: 8px;
 
     @include bp(md) {
         #{--container-max-width}: 70vw;
+        #{--content-border}: 2px solid $light-pink;
+        #{--content-margin-top}: 5rem;
     }
 
     @include bp(lg) {
@@ -26,12 +31,13 @@
 
     &__content {
         border-radius: var(--content-border-radius);
-        border: 2px solid $light-pink;
+        border: var(--content-border);
         align-items: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 0 auto;
+        margin: var(--content-margin-top) auto 0;
         max-width: var(--container-max-width);
+        padding: var(--content-padding) 0;
     }
 }

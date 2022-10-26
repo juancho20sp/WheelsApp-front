@@ -22,7 +22,7 @@ const NextTripCard = ({
                 <p className='nextTripCard__date'>{date}</p>
             </header>
 
-            <main className='nextTripCard__main' style={{'border-bottom': isDriver ? '' : 'unset'}}>
+            <main className='nextTripCard__main' style={{'borderBottom': isDriver ? '' : 'unset'}}>
                 <div className='nextTripCard__stops--info-container'>
                     <p className='nextTripCard__stops--title'>Paradas programadas</p>
                     <p className='nextTripCard__stops--seats-available'>{`${availableSeats} ${availableSeats > 1 ? 'Cupos disponibles' : 'Cupo disponible'}`}</p>

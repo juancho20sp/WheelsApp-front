@@ -12,3 +12,4 @@ export { default as NextTripCard } from './cards/NextTripCard';
 export { default as NextTrips } from './common/NextTrips';
 export { default as PassedTrips } from './common/PassedTrips';
 export { default as PassedTripCard } from './cards/PassedTripCard';
+export { default as ProfileHeader } from './common/ProfileHeader';

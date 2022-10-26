@@ -1,0 +1,68 @@
+@import '../utils/mixins';
+
+.profile {
+    #{--container-background-color}: #e0e0e0;
+    #{--container-height}: 100%;
+    #{--content-border-radius}: 16px;
+    #{--content-border}: unset;
+    #{--content-gap}: 10px;
+    #{--content-margin-top}: 1rem;
+    #{--content-max-width}: 90vw;
+    #{--content-padding}: 8px;
+    #{--form-field-font-color}: #353535;
+    #{--form-field-font-size}: 15px;
+    #{--form-field-font-weight}: 600;
+    #{--form-width}: 100%;
+
+    @include bp(md) {
+        #{--content-border}: 2px solid $light-pink;
+        #{--content-margin-top}: 5rem;
+        #{--content-max-width}: 70vw;
+        #{--form-field-font-size}: 18px;
+    }
+
+    @include bp(lg) {
+        #{--content-max-width}: 60vw;
+    }
+
+    @include bp(xl) {
+        #{--content-max-width}: 50vw;
+    }
+
+
+    &__container {
+        background-color: var(--container-background-color);
+        height: var(--container-height);
+
+        // This could be a good approach
+        // display: grid;
+        // grid-template-rows: auto 1fr;
+    }
+
+    &__content {
+        align-items: center;
+        border-radius: var(--content-border-radius);
+        border: var(--content-border);
+        display: flex;
+        flex-direction: column;
+        gap: var(--content-gap);
+        justify-content: center;
+        margin: var(--content-margin-top) auto 0;
+        max-width: var(--content-max-width);
+        padding: var(--content-padding);
+    }
+
+    &__form {
+        width: var(--form-width);
+
+        .formField__label {
+            color: var(--form-font-color);
+            font-weight: 600;
+        }
+
+        .formField__input {
+            color: var(--form-font-color);
+            font-size: var(--form-field-font-size);
+        }
+    }
+}

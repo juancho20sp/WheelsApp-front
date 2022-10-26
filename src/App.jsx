@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserRoutes } from './utils/';
 
 // Views
-import { Test, SignIn, Login, HomePassenger } from './views';
+import { Test, SignUp, Login, HomePassenger, Profile } from './views';
 
 function App() {
   return (
@@ -12,8 +12,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path={UserRoutes.home.path} element={<HomePassenger />}></Route>
-          <Route exact path={UserRoutes.signIn.path} element={<SignIn />}></Route>
+          <Route exact path={UserRoutes.signUp.path} element={<SignUp />}></Route>
           <Route exact path={UserRoutes.login.path} element={<Login />}></Route>
+          <Route exact path={UserRoutes.profile.path} element={<Profile />}></Route>
           <Route exact path='/test' element={<Test />}></Route>
         </Routes>
       </BrowserRouter>

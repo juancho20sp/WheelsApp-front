@@ -21,7 +21,7 @@ const PassedTripCard = ({
 
     return (
         <div className='passedTripCard passedTripCard__container'>
-            <header className='passedTripCard__header' style={{'border-bottom': isDriver ? '' : 'unset'}}>
+            <header className='passedTripCard__header' style={{'borderBottom': isDriver ? '' : 'unset'}}>
                 <p className='passedTripCard__title'>{title}</p>
                 <p className='passedTripCard__date'>{date}</p>
             </header>

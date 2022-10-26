@@ -9,10 +9,15 @@ const UserRoutes = {
     path: '/',
     name: 'home',
   },
-  signIn: {
+  signUp: {
     id: 2,
     path: '/sign-up',
     name: 'sign-up',
+  },
+  profile: {
+    id: 3,
+    path: '/profile',
+    name: 'profile',
   },
 };
 

@@ -1,0 +1,87 @@
+@import '../../utils/mixins';
+
+.profileHeader {
+    #{--avatar-font-size}: 2.5rem;
+    #{--avatar-margin}: 5px;
+    #{--container-border-color}: #545454;
+    #{--container-gap}: 5px;
+    #{--container-margin}: 5px 0;
+    #{--container-max-width}: unset;
+    #{--container-width}: 100%;
+    #{--cta-border-radius}: 4px;
+    #{--cta-color}: $light-pink;
+    #{--cta-font-size}: 11px;
+    #{--cta-font-weight}: lighter;
+    #{--cta-padding}: 3px;
+    #{--info-gap}: 2px;
+    #{--model-font-size}: 12px;
+    #{--name-font-size}: 14px;
+    #{--name-font-weight}: 600;
+
+    @include bp(md) {
+        #{--container-max-width}: 95%;
+        #{--cta-font-size}: 13px;
+        #{--model-font-size}: 12px;
+        #{--name-font-size}: 16px;
+
+    }
+
+    @include bp(lg) {
+        #{--container-max-width}: 75%;
+        #{--cta-font-size}: 15px;
+        #{--model-font-size}: 14px;
+        #{--name-font-size}: 18px;
+    }
+
+    @include bp(xl) {
+        #{--container-max-width}: 70%;
+    }
+
+    &__container {
+        border-bottom: 2px solid var(--container-border-color);
+        display: flex;
+        gap: var(--container-gap);
+        width: var(--container-width);
+    }
+
+    &__avatar {
+        font-size: var(--avatar-font-size);
+        margin: var(--avatar-margin);
+        max-width: fit-content;
+    }
+
+    &__info {
+        display: flex;
+        gap: var(--info-gap);
+        justify-content: flex-start;
+
+        &--name {
+            font-size: var(--name-font-size);
+            font-weight: var(--name-font-weight);
+        }
+
+        &--stars {
+            font-size: var(--name-font-size);
+            font-weight: var(--name-font-weight);
+        }
+
+        &--model {
+            font-size: var(--model-font-size);
+        }
+
+        &--plate {
+            font-size: var(--model-font-size);
+        }
+    }
+
+    &__update-profile-cta {
+        background-color: transparent;
+        border-radius: var(--cta-border-radius);
+        border: 1px solid var(--cta-color);
+        color: var(--cta-color);
+        font-size: var(--cta-font-size);
+        font-weight: var(--cta-font-weight);
+        padding: var(--cta-padding);
+    }
+
+}
