@@ -11,8 +11,8 @@ const UserRoutes = {
   },
   signIn: {
     id: 2,
-    path: '/sign-in',
-    name: 'sign-in',
+    path: '/sign-up',
+    name: 'sign-up',
   },
 };
 
