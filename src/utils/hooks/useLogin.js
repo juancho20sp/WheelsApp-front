@@ -1,14 +1,40 @@
 import React, { useState } from 'react';
 
+// Components
+import Swal from 'sweetalert2';
+
+// Hooks
 import { UserRoutes, useHttp } from '../';
+
+// Navigation
 import { useNavigate } from 'react-router-dom';
+
+// Redux
+import { useDispatch } from 'react-redux';
+import {
+    login,
+    logout,
+    startLoading,
+    stopLoading
+} from '../../redux';
 
 
 const useLogin = () => {
-    const { post } = useHttp();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { post } = useHttp();
+
     const [email, setEmail] = useState('Admmin@mail.com');
     const [password, setPassword] = useState('Admmin');
+
+    const resetForm = () => {
+        setEmail('');
+        setPassword('');
+    };
+
+    const logoutUser = () => {
+        dispatch(logout());
+    };
 
     const handleEmailChange = (event) => {
         event.preventDefault();
@@ -22,6 +48,7 @@ const useLogin = () => {
 
     const handleLoginButtonClick = async (event) => {
         event.preventDefault();
+        dispatch(startLoading());
 
         const url = `${process.env.REACT_APP_BACKEND_URL}/auth`;
         const data = {
@@ -31,13 +58,29 @@ const useLogin = () => {
 
         try {
             const loginData = await post(url, data);
-            console.log(loginData);
+            const token = loginData?.token;
+            const message = loginData?.message;
 
-        } catch(err) {
+            if (token) {
+                dispatch(login(token));
+            }
+
+            if (message) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Usuario o contraseña incorrectos',
+                    footer: `<p>${message}<p/>`
+                });
+            }
+
+
+        } catch (err) {
             console.error(err);
+        } finally {
+            resetForm();
+            dispatch(stopLoading());
         }
-
-        console.log(email, password);
     };
 
     const handleRegisterHereClick = (event) => {
@@ -47,10 +90,13 @@ const useLogin = () => {
     };
 
     return {
+        email,
         handleEmailChange,
-        handlePasswordChange,
         handleLoginButtonClick,
-        handleRegisterHereClick
+        handlePasswordChange,
+        handleRegisterHereClick,
+        logoutUser,
+        password
     };
 };
 

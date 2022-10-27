@@ -65,6 +65,10 @@
   display: inline-block;
   margin-bottom: 4rem;
   text-align: start;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Styling of overlay */
@@ -72,4 +76,3 @@
   background: rgba(0, 0, 0, 0.9);
   top: 0;
 }
-

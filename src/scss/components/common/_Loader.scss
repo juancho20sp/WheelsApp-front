@@ -1,0 +1,15 @@
+@import '../../utils/mixins';
+
+.loader {
+  &__container {
+    background-color: rgba($color: #000, $alpha: 0.5);
+    bottom: 0;
+    display: grid;
+    left: 0;
+    place-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+  }
+}

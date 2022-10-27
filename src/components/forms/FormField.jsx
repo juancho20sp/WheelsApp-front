@@ -13,7 +13,7 @@ const FormField = ({ label = '', helper = '', type = 'text', value = '', isDisab
       {children ? (
         <div className='formField__children'>{children}</div>
       ) : (
-        <input className='formField__input' defaultValue={value} type={type} name={label} id={label} disabled={isDisabled} onChange={(e) => changeHandler ? changeHandler(e) : ''}/>
+        <input className='formField__input' value={value} type={type} name={label} id={label} disabled={isDisabled} onChange={(e) => changeHandler ? changeHandler(e) : ''}/>
       )}
     </div>
   );

@@ -16,3 +16,4 @@ export { default as ProfileHeader } from './common/ProfileHeader';
 export { default as ProtectedRoute } from './navigation/ProtectedRoute';
 export { default as UnprotectedRoute } from './navigation/UnprotectedRoute';
 export { default as Modal } from './common/Modal';
+export { default as Loader } from './common/Loader';
