@@ -5,25 +5,28 @@
     #{--avatar-margin}: 5px;
     #{--container-border-color}: #545454;
     #{--container-gap}: 5px;
-    #{--container-margin}: 5px 0;
+    #{--container-margin-top}: 15px;
     #{--container-max-width}: unset;
+    #{--container-padding}: 10px;
     #{--container-width}: 100%;
     #{--cta-border-radius}: 4px;
     #{--cta-color}: $light-pink;
+    #{--cta-container-gap}: 10px;
     #{--cta-font-size}: 11px;
     #{--cta-font-weight}: lighter;
     #{--cta-padding}: 3px;
     #{--info-gap}: 2px;
+    #{--information-gap}: 5px;
     #{--model-font-size}: 12px;
     #{--name-font-size}: 14px;
     #{--name-font-weight}: 600;
 
     @include bp(md) {
+        #{--container-margin-top}: unset;
         #{--container-max-width}: 95%;
         #{--cta-font-size}: 13px;
         #{--model-font-size}: 12px;
         #{--name-font-size}: 16px;
-
     }
 
     @include bp(lg) {
@@ -41,13 +44,23 @@
         border-bottom: 2px solid var(--container-border-color);
         display: flex;
         gap: var(--container-gap);
+        margin-top: var(--container-margin-top);
+        padding: var(--container-padding);
         width: var(--container-width);
     }
 
     &__avatar {
+        display: grid;
         font-size: var(--avatar-font-size);
         margin: var(--avatar-margin);
         max-width: fit-content;
+        place-items: center;
+    }
+
+    &__information {
+        display: flex;
+        flex-direction: column;
+        gap: var(--information-gap);
     }
 
     &__info {
@@ -74,6 +87,12 @@
         }
     }
 
+    &__cta--container {
+        display: flex;
+        gap: var(--cta-container-gap);
+        justify-content: flex-start;
+    }
+
     &__update-profile-cta {
         background-color: transparent;
         border-radius: var(--cta-border-radius);
@@ -82,6 +101,24 @@
         font-size: var(--cta-font-size);
         font-weight: var(--cta-font-weight);
         padding: var(--cta-padding);
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__update-profile-logout {
+        background-color: transparent;
+        border-radius: var(--cta-border-radius);
+        border: 1px solid $dark-blue;
+        color: $dark-blue;
+        font-size: var(--cta-font-size);
+        font-weight: var(--cta-font-weight);
+        padding: var(--cta-padding);
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
 }

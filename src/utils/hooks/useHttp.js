@@ -16,8 +16,25 @@ const useHttp = () => {
         }
     };
 
+    const get = async (url = '', token = '') => {
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            return response.json();
+        } catch (e) {
+            throw new Error(e);
+        }
+    };
+
     return {
         post,
+        get
     };
 };
 

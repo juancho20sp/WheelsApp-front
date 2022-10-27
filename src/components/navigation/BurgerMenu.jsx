@@ -5,14 +5,18 @@ import { slide as Menu } from 'react-burger-menu';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 // Hooks
-import { useLogin } from '../../utils';
+import { UserRoutes } from '../../utils';
+import { useNavigate } from 'react-router-dom';
+
+// Redux
+import { useSelector } from 'react-redux';
 
 const BurgerMenu = () => {
-  const { logoutUser: logout } = useLogin();
-  
-  const handleLogout = (event) => {
-    event.preventDefault();
-    logout();
+  const navigate = useNavigate();
+  const currentRole = useSelector((state) => state.login.currentRole);
+
+  const handleNavItemClick = (route) => {
+    navigate(route);
   };
 
   return (
@@ -21,11 +25,11 @@ const BurgerMenu = () => {
       className='burgerMenu burgerMenu__container'
       width={'300px'}
     >
-      <h2>Titulo</h2>
-      <a>Test 1</a>
-      <a>Test 2</a>
-      <a>Test 3</a>
-      <a onClick={(e) => handleLogout(e)}>Cerrar sesión</a>
+      <h2>Home {currentRole === 'DRIVER' ? 'Conductor' : 'Pasajero'}</h2>
+      <a onClick={() => handleNavItemClick(UserRoutes.home.path)}>Home</a>
+      <a onClick={() => handleNavItemClick(UserRoutes.profile.path)}>Perfil</a>
+      <a onClick={() => handleNavItemClick(UserRoutes.historial.path)}>Historial</a>
+      {/* <a onClick={() => handleNavItemClick(UserRoutes.settings.path)}>Settings</a> */}
 
     </Menu>
   );

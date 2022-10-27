@@ -7,11 +7,13 @@
     #{--content-border}: unset;
     #{--content-gap}: 10px;
     #{--content-margin-top}: 1rem;
+    #{--content-max-height}: 80%;
     #{--content-max-width}: 90vw;
-    #{--content-padding}: 8px;
+    #{--content-padding}: 10px;
     #{--form-field-font-color}: #353535;
     #{--form-field-font-size}: 15px;
     #{--form-field-font-weight}: 600;
+    #{--form-gap}: 8px;
     #{--form-width}: 100%;
 
     @include bp(md) {
@@ -33,10 +35,6 @@
     &__container {
         background-color: var(--container-background-color);
         height: var(--container-height);
-
-        // This could be a good approach
-        // display: grid;
-        // grid-template-rows: auto 1fr;
     }
 
     &__content {
@@ -48,11 +46,16 @@
         gap: var(--content-gap);
         justify-content: center;
         margin: var(--content-margin-top) auto 0;
+        max-height: var(--content-max-height);
         max-width: var(--content-max-width);
+        overflow-y: scroll;
         padding: var(--content-padding);
     }
 
     &__form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--form-gap);
         width: var(--form-width);
 
         .formField__label {

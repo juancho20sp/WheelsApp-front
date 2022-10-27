@@ -76,3 +76,12 @@
   background: rgba(0, 0, 0, 0.9);
   top: 0;
 }
+
+.burgerMenu {
+  &__container {
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+  }
+}

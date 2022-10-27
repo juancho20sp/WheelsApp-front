@@ -19,6 +19,16 @@ const UserRoutes = {
     path: '/profile',
     name: 'profile',
   },
+  historial: {
+    id: 4,
+    path: '/historial',
+    name: 'historial',
+  },
+  settings: {
+    id: 4,
+    path: '/settings',
+    name: 'settings',
+  },
 };
 
 export default UserRoutes;
