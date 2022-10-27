@@ -1,23 +1,75 @@
 import React, { useState } from 'react';
 
+// Components
+import Swal from 'sweetalert2';
+
+// Hooks
 import { UserRoutes, useHttp } from '..';
+
+// Navigation
 import { useNavigate } from 'react-router-dom';
 
+// Redux
+import { useDispatch } from 'react-redux';
+import {
+    startLoading,
+    stopLoading
+} from '../../redux';
 
 const useSignUp = () => {
     const { post } = useHttp();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
+    // MODALS
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isVehicleModal, setIsVehicleModal] = useState(false);
+    const [isDriver, setIsDriver] = useState(false);
 
-    const [name, setName] = useState('react name');
-    const [lastname, setLastname] = useState('react lastname');
-    const [email, setEmail] = useState('react@mail.com');
-    const [password, setPassword] = useState('react');
-    const [phone, setPhone] = useState('1233567');
-    const [city, setCity] = useState('Citytest');
-    const [organization, setOrganization] = useState('organizaiton');
-    const [profilePhoto, setProfilePhoto] = useState('photo');
+    // PASSENGER
+    const [name, setName] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    const [city, setCity] = useState('CITY TDB');
+    const [organization, setOrganization] = useState('');
+    const [profilePhoto, setProfilePhoto] = useState('PHOTO TBD');
+
+    // VEHICLE
+    const [idUser, setIdUser] = useState('');
+    const [soat, setSoat] = useState('SOAT TBD');
+    const [seats, setSeats] = useState('');
+    const [propertyCard, setPropertyCard] = useState('PROPERTY CARD TBD');
+    const [vehicleDescription, setVehicleDescription] = useState('');
+    const [carPhoto, setCarPhoto] = useState('PHOTO TBD');
+    const [isActive, setIsActive] = useState(true);
+
+    const resetComponent = () => {
+        // MODALS
+        setIsModalOpen(false);
+        setIsVehicleModal(false);
+        setIsDriver(false);
+
+        // PASSENGER
+        setName('');
+        setLastname('');
+        setEmail('');
+        setPassword('');
+        setPhone('');
+        setCity('CITY TDB');
+        setOrganization('');
+        setProfilePhoto('PHOTO TBD');
+
+        // VEHICLE
+        setIdUser('');
+        setSoat('SOAT TBD');
+        setSeats('');
+        setPropertyCard('PROPERTY CARD TBD');
+        setVehicleDescription('');
+        setCarPhoto('CAR PHOTO TBD');
+        setIsActive(true);
+    };
 
     // MODAL
     const handleOpenModal = () => {
@@ -28,7 +80,40 @@ const useSignUp = () => {
         setIsModalOpen(false);
     };
 
-    // FORM
+    const handleOpenVehicleModal = () => {
+        setIsVehicleModal(true);
+    };
+
+    const handleCloseVehicleModal = () => {
+        setIsVehicleModal(false);
+    };
+
+    // FORM PASSENGER
+    const handleNameChange = (event) => {
+        event.preventDefault();
+        setName(event.target.value);
+    };
+
+    const handleLastnameChange = (event) => {
+        event.preventDefault();
+        setLastname(event.target.value);
+    };
+
+    const handlePhoneChange = (event) => {
+        event.preventDefault();
+        setPhone(event.target.value);
+    };
+
+    const handleCityChange = (event) => {
+        event.preventDefault();
+        setCity(event.target.value);
+    };
+
+    const handleOrganizationChange = (event) => {
+        event.preventDefault();
+        setOrganization(event.target.value);
+    };
+
     const handleEmailChange = (event) => {
         event.preventDefault();
         setEmail(event.target.value);
@@ -39,32 +124,38 @@ const useSignUp = () => {
         setPassword(event.target.value);
     };
 
-    const handleRegisterDriverButtonClick = async (event) => {
+    // FORM VEHICLE
+    const handleSeatsChange = (event) => {
+        event.preventDefault();
+        setSeats(event.target.value);
+    };
+
+    const handleVehicleDescriptionChange = (event) => {
+        event.preventDefault();
+        setVehicleDescription(event.target.value);
+    };
+
+    // HANDLERS
+    const handleDriverButtonClick = async (event) => {
         event.preventDefault();
 
-        const url = `${process.env.REACT_APP_BACKEND_URL}/login`;
-        const data = {
-            email,
-            password
-        };
+        handleOpenModal();
+        setIsDriver(true);
+    };
 
-        // try {
-        //     const loginData = await post(url, data);
-        //     console.log(loginData);
+    const handlePassengerButtonClick = async (event) => {
+        event.preventDefault();
 
-        // } catch(err) {
-        //     console.error(err);
-        // }
-
-        console.log(email, password);
+        handleOpenModal();
+        setIsDriver(false);
     };
 
     const handleRegisterPassengerButtonClick = async (event) => {
         event.preventDefault();
+        dispatch(startLoading());
 
-        handleOpenModal();
-
-        const url = `${process.env.REACT_APP_BACKEND_URL}/users/`;
+        let userId = null;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/users`;
         const data = {
             name,
             lastName: lastname,
@@ -76,22 +167,148 @@ const useSignUp = () => {
             profilePhoto
         };
 
-        console.log(data);
-
         try {
-            const loginData = await post(url, data);
-            console.log(loginData);
+            const userData = await post(url, data);
+            const message = userData?.message;
+            userId = userData?.id;
 
-        } catch(err) {
+            if (message) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo salió mal',
+                    footer: `<p>${message}<p/>`
+                });
+            }
+        } catch (err) {
             console.error(err);
+        } finally {
+            dispatch(stopLoading());
         }
 
-        console.log(email, password);
+        resetComponent();
+
+        if (userId) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro éxitoso',
+                text: '¡Bienvenido a Wheelsapp!'
+            });
+            navigate(UserRoutes.login.path);
+        }
+    };
+
+    const handleRegisterDriverButtonClick = async (event) => {
+        event.preventDefault();
+        dispatch(startLoading());
+
+        let userId = null;
+        let token = null;
+        let vehicleId = null;
+
+        // REGISTER USER
+        const userUrl = `${process.env.REACT_APP_BACKEND_URL}/users`;
+        const driverData = {
+            name,
+            lastName: lastname,
+            email,
+            password,
+            phoneNumber: phone,
+            city,
+            organization,
+            profilePhoto
+        };
+
+        try {
+            const userData = await post(userUrl, driverData);
+            const message = userData?.message;
+            userId = userData?.id;
+
+            if (message) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo salió mal',
+                    footer: `<p>${message}<p/>`
+                });
+            }
+        } catch (err) {
+            console.error(err);
+            return;
+        } finally {
+            dispatch(stopLoading());
+        }
+
+        // LOGIN USER
+        const loginUrl = `${process.env.REACT_APP_BACKEND_URL}/auth`;
+        const loginData = {
+            email,
+            password
+        };
+
+        try {
+            const loginInfo = await post(loginUrl, loginData);
+            token = loginInfo?.token;
+
+            console.log(token);
+
+        } catch (err) {
+            console.error(err);
+        } finally {
+            dispatch(stopLoading());
+        }
+
+        // REGISTER VEHICLE
+        const vehicleUrl = `${process.env.REACT_APP_BACKEND_URL}/vehicles`;
+        const vehicleData = {
+            idUser: userId,
+            soat,
+            seats,
+            propertyCard,
+            vehicleDescription,
+            carPhoto,
+            isActive,
+        };
+
+        try {
+            const vehicleInfo = await post(vehicleUrl, vehicleData, token);
+            const message = vehicleInfo?.message;
+            vehicleId = vehicleInfo?.id;
+
+            if (message) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo salió mal',
+                    footer: `<p>${message}<p/>`
+                });
+            }
+        } catch (err) {
+            console.error(err);
+            return;
+        } finally {
+            dispatch(stopLoading());
+        }
+
+        resetComponent();
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Registro éxitoso',
+            text: '¡Bienvenido a Wheelsapp!'
+        });
+        navigate(UserRoutes.login.path);
+
+    };
+
+    const handleDriverContinueClick = (event) => {
+        event.preventDefault();
+        handleCloseModal();
+        handleOpenVehicleModal();
     };
 
     const handleLoginHereClick = (event) => {
         event.preventDefault();
-
         navigate(UserRoutes.login.path);
     };
 
@@ -103,7 +320,35 @@ const useSignUp = () => {
         handleLoginHereClick,
         handleOpenModal,
         handleCloseModal,
-        isModalOpen
+        isModalOpen,
+        handleNameChange,
+        handleLastnameChange,
+        handlePhoneChange,
+        handleCityChange,
+        handleOrganizationChange,
+        isDriver,
+        handleDriverContinueClick,
+        isVehicleModal,
+        handleCloseVehicleModal,
+        handleDriverButtonClick,
+        handlePassengerButtonClick,
+        handleSeatsChange,
+        handleVehicleDescriptionChange,
+        name,
+        lastname,
+        email,
+        password,
+        phone,
+        city,
+        organization,
+        profilePhoto,
+        idUser,
+        soat,
+        seats,
+        propertyCard,
+        vehicleDescription,
+        carPhoto,
+        isActive,
     };
 };
 
