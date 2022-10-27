@@ -41,7 +41,7 @@ const Profile = () => {
                             {isDriver && <FormField label='Vehículos'>
                                 <select name='' id='' onChange={handleVehicleChange}>
                                     {/* <option value=''>Seleccione un vehículo</option> */}
-                                    {vehicles.map((vehicle, idx) =>
+                                    {vehicles && vehicles.map((vehicle, idx) =>
                                         <option key={idx} value={`${vehicle.licensePlate} - ${vehicle.description}`}>{`${vehicle.licensePlate} - ${vehicle.description}`}</option>
                                     )}
                                 </select>
