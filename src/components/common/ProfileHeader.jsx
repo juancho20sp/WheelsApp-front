@@ -18,6 +18,7 @@ const ProfileHeader = ({
 }) => {
     const { logoutUser } = useLogin();
     const isDriver = useSelector((state) => state.login.isDriver);
+    const selectedVehicle = useSelector((state) => state.user.selectedVehicle);
 
     return (
         <div className='profileHeader profileHeader__container'>
@@ -31,8 +32,8 @@ const ProfileHeader = ({
                 </div>
 
                 {isDriver && <div className='profileHeader__info'>
-                    <p className='profileHeader__info--model'>{vehicleDescription} · </p>
-                    <p className='profileHeader__info--plate'>&#9733; {vehiclePlate}</p>
+                    <p className='profileHeader__info--model'>{selectedVehicle.description || vehicleDescription} · </p>
+                    <p className='profileHeader__info--plate'>&#9733; {selectedVehicle.licensePlate || vehiclePlate}</p>
                 </div>}
 
                 <div className='profileHeader__cta--container'>

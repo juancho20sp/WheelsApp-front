@@ -279,7 +279,7 @@ const useSignUp = () => {
             soat,
             licensePlate,
             model,
-            puestos: seats,
+            seats,
             propertyCard,
             description: vehicleDescription,
             photo: carPhoto,

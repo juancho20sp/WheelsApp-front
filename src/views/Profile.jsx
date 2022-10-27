@@ -15,11 +15,15 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
     const {
         isDriver,
+        handleVehicleChange
     } = useProfile();
 
     const userData = useSelector((state) => state.user.userData);
     const isLoading = useSelector((state) => state.common.isLoading);
+    const vehicles = useSelector((state) => state.user.userData.vehicles);
     const [isDisabled, setIsDisabled] = useState(true);
+
+    console.log(vehicles);
 
     return (
         <>
@@ -29,7 +33,7 @@ const Profile = () => {
                     <Header text='Perfil' />
 
                     <div className='profile__content'>
-                        <ProfileHeader userName={`${userData.name} ${userData.lastName }`} />
+                        <ProfileHeader userName={`${userData.name} ${userData.lastName}`} />
 
                         <form className='profile__form'>
                             <FormField label='Institución' value={userData.organization || ''} isDisabled={isDisabled} />
@@ -37,8 +41,11 @@ const Profile = () => {
                             <FormField label='Contacto' value={userData.phoneNumber || ''} isDisabled={isDisabled} />
 
                             {isDriver && <FormField label='Vehículos'>
-                                <select name='' id=''>
-                                    <option value=''>holi</option>
+                                <select name='' id='' onChange={handleVehicleChange}>
+                                    {/* <option value=''>Seleccione un vehículo</option> */}
+                                    {vehicles.map((vehicle, idx) =>
+                                        <option key={idx} value={`${vehicle.licensePlate} - ${vehicle.description}`}>{`${vehicle.licensePlate} - ${vehicle.description}`}</option>
+                                    )}
                                 </select>
                             </FormField>}
                         </form>

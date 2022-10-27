@@ -11,4 +11,5 @@ export {
 
 export {
     setUserData,
+    setSelectedVehicle
 } from './slices/userSlice';

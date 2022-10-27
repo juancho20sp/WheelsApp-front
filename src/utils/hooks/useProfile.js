@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Components
 import Swal from 'sweetalert2';
@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     startLoading,
     stopLoading,
+    setSelectedVehicle,
     setUserData
 } from '../../redux';
 
@@ -21,26 +22,34 @@ const useProfile = () => {
 
     const { isDriver, userId, token } = useSelector((state) => state.login);
 
+    const [vehicle, setVehicle] = useState('');
+
     useEffect(() => {
         const getData = async () => {
             dispatch(startLoading());
 
             const url = `${process.env.REACT_APP_BACKEND_URL}/users/${userId}`;
+            const vehicleUrl = `${process.env.REACT_APP_BACKEND_URL}/vehicles/user/${userId}`;
 
             try {
                 const userData = await get(url, token);
+                const vehicleData = await get(vehicleUrl, token);
                 const message = userData?.message;
+                const messageVehicle = vehicleData?.message;
 
-                if (message) {
+                if (message || messageVehicle) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Algo salió mal',
-                        footer: `<p>${message}<p/>`
+                        footer: `<p>${message || messageVehicle}<p/>`
                     });
                 }
 
-                dispatch(setUserData(userData));
+                const finalData = {...userData, vehicles: vehicleData};
+                // const defaultVehicle = `${vehicleData[0].licensePlate} - ${vehicleData[0].description}`;
+                dispatch(setSelectedVehicle(vehicleData[0]));
+                dispatch(setUserData(finalData));
                 console.log(userData);
             } catch (err) {
                 console.error(err);
@@ -52,8 +61,15 @@ const useProfile = () => {
         getData();
     }, []);
 
+    const handleVehicleChange = (event) => {
+        event.preventDefault();
+        setVehicle(event.target.value);
+        dispatch(setSelectedVehicle(event.target.value));
+    };
+
     return {
         isDriver,
+        handleVehicleChange
     };
 };
 

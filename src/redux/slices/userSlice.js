@@ -18,12 +18,20 @@ const getFromLocalStorage = (keyName) => {
 export const userSlice = createSlice({
   name: 'login',
   initialState: getFromLocalStorage('userSlice') ? getFromLocalStorage('userSlice') : {
-    userData: {}
+    userData: {},
+    selectedVehicle: ''
   },
   reducers: {
     setUserData: (state, action) => {
       if (action.payload) {
         state.userData = {...action.payload};
+        saveToLocalStorage(state);
+      }
+    },
+
+    setSelectedVehicle: (state, action) => {
+      if (action.payload) {
+        state.selectedVehicle = action.payload;
         saveToLocalStorage(state);
       }
     }
@@ -32,6 +40,7 @@ export const userSlice = createSlice({
 
 export const {
   setUserData,
+  setSelectedVehicle
 } = userSlice.actions;
 
 export default userSlice.reducer;
