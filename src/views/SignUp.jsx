@@ -16,16 +16,15 @@ import { useSelector } from 'react-redux';
 const SignUp = () => {
   const {
     email,
-    lastname,
-    password,
-    phone,
     handleCloseModal,
     handleCloseVehicleModal,
     handleDriverButtonClick,
     handleDriverContinueClick,
     handleEmailChange,
     handleLastnameChange,
+    handleLicensePlateChange,
     handleLoginHereClick,
+    handleModelChange,
     handleNameChange,
     handleOrganizationChange,
     handlePassengerButtonClick,
@@ -38,7 +37,12 @@ const SignUp = () => {
     isDriver,
     isModalOpen,
     isVehicleModal,
+    lastname,
+    licensePlate,
+    model,
     name,
+    password,
+    phone,
     seats,
     vehicleDescription,
   } = useSignUp();
@@ -128,6 +132,8 @@ const SignUp = () => {
 
               <FormField label='Total de asientos disponibles' helper='¿Cuántas personas puedes llevar?' type='number' changeHandler={handleSeatsChange} value={seats} />
               <FormField label='Descripción del vehículo' helper='Nissan March Azul' type='text' changeHandler={handleVehicleDescriptionChange} value={vehicleDescription} />
+              <FormField label='Placa del vehículo' helper='ABC 123' type='text' changeHandler={handleLicensePlateChange} value={licensePlate} />
+              <FormField label='Modelo del vehículo' helper='2022' type='number' changeHandler={handleModelChange} value={model} />
             </form>
 
             <hr className='signUp__section-divider' />

@@ -44,6 +44,8 @@ const useSignUp = () => {
     const [vehicleDescription, setVehicleDescription] = useState('');
     const [carPhoto, setCarPhoto] = useState('PHOTO TBD');
     const [isActive, setIsActive] = useState(true);
+    const [licensePlate, setLicensePlate] = useState('');
+    const [model, setModel] = useState('');
 
     const resetComponent = () => {
         // MODALS
@@ -69,6 +71,8 @@ const useSignUp = () => {
         setVehicleDescription('');
         setCarPhoto('CAR PHOTO TBD');
         setIsActive(true);
+        setLicensePlate('');
+        setModel('');
     };
 
     // MODAL
@@ -133,6 +137,16 @@ const useSignUp = () => {
     const handleVehicleDescriptionChange = (event) => {
         event.preventDefault();
         setVehicleDescription(event.target.value);
+    };
+
+    const handleLicensePlateChange = (event) => {
+        event.preventDefault();
+        setLicensePlate(event.target.value);
+    };
+
+    const handleModelChange = (event) => {
+        event.preventDefault();
+        setModel(event.target.value);
     };
 
     // HANDLERS
@@ -263,10 +277,12 @@ const useSignUp = () => {
         const vehicleData = {
             idUser: userId,
             soat,
-            seats,
+            licensePlate,
+            model,
+            puestos: seats,
             propertyCard,
-            vehicleDescription,
-            carPhoto,
+            description: vehicleDescription,
+            photo: carPhoto,
             isActive,
         };
 
@@ -274,6 +290,8 @@ const useSignUp = () => {
             const vehicleInfo = await post(vehicleUrl, vehicleData, token);
             const message = vehicleInfo?.message;
             vehicleId = vehicleInfo?.id;
+
+            console.log(vehicleData);
 
             if (message) {
                 Swal.fire({
@@ -313,42 +331,46 @@ const useSignUp = () => {
     };
 
     return {
-        handleEmailChange,
-        handlePasswordChange,
-        handleRegisterDriverButtonClick,
-        handleRegisterPassengerButtonClick,
-        handleLoginHereClick,
-        handleOpenModal,
-        handleCloseModal,
-        isModalOpen,
-        handleNameChange,
-        handleLastnameChange,
-        handlePhoneChange,
+        carPhoto,
+        city,
+        email,
         handleCityChange,
-        handleOrganizationChange,
-        isDriver,
-        handleDriverContinueClick,
-        isVehicleModal,
+        handleCloseModal,
         handleCloseVehicleModal,
         handleDriverButtonClick,
+        handleDriverContinueClick,
+        handleEmailChange,
+        handleLastnameChange,
+        handleLicensePlateChange,
+        handleLoginHereClick,
+        handleModelChange,
+        handleNameChange,
+        handleOpenModal,
+        handleOrganizationChange,
         handlePassengerButtonClick,
+        handlePasswordChange,
+        handlePhoneChange,
+        handleRegisterDriverButtonClick,
+        handleRegisterPassengerButtonClick,
         handleSeatsChange,
         handleVehicleDescriptionChange,
-        name,
+        idUser,
+        isActive,
+        isDriver,
+        isModalOpen,
+        isVehicleModal,
         lastname,
-        email,
+        licensePlate,
+        model,
+        name,
+        organization,
         password,
         phone,
-        city,
-        organization,
         profilePhoto,
-        idUser,
-        soat,
-        seats,
         propertyCard,
+        seats,
+        soat,
         vehicleDescription,
-        carPhoto,
-        isActive,
     };
 };
 
