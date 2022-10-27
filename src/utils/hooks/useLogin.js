@@ -24,8 +24,8 @@ const useLogin = () => {
     const dispatch = useDispatch();
     const { post } = useHttp();
 
-    const [email, setEmail] = useState('Admmin@mail.com');
-    const [password, setPassword] = useState('Admmin');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const resetForm = () => {
         setEmail('');
