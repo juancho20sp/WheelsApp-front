@@ -263,9 +263,6 @@ const useSignUp = () => {
         try {
             const loginInfo = await post(loginUrl, loginData);
             token = loginInfo?.token;
-
-            console.log(token);
-
         } catch (err) {
             console.error(err);
         } finally {
@@ -290,8 +287,6 @@ const useSignUp = () => {
             const vehicleInfo = await post(vehicleUrl, vehicleData, token);
             const message = vehicleInfo?.message;
             vehicleId = vehicleInfo?.id;
-
-            console.log(vehicleData);
 
             if (message) {
                 Swal.fire({

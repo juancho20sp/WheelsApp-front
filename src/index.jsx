@@ -10,8 +10,6 @@ import { Provider } from 'react-redux';
 // eslint-disable-next-line no-undef
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-console.log(root);
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>

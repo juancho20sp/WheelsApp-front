@@ -47,10 +47,8 @@ const useProfile = () => {
                 }
 
                 const finalData = {...userData, vehicles: vehicleData};
-                // const defaultVehicle = `${vehicleData[0].licensePlate} - ${vehicleData[0].description}`;
                 dispatch(setSelectedVehicle(vehicleData[0]));
                 dispatch(setUserData(finalData));
-                console.log(userData);
             } catch (err) {
                 console.error(err);
             } finally {

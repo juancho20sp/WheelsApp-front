@@ -23,8 +23,6 @@ const Profile = () => {
     const vehicles = useSelector((state) => state.user.userData.vehicles);
     const [isDisabled, setIsDisabled] = useState(true);
 
-    console.log(vehicles);
-
     return (
         <>
             {isLoading && <Loader />}
