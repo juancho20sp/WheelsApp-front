@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // SCSS colors
 import colors from '../scss/utils/_variables.scss';
@@ -10,7 +10,7 @@ import { Layout } from './';
 import { Header, NextTrips, PassedTrips, FilledButton } from '../components';
 
 // Hooks
-import { useHeader } from '../utils';
+import { useHeader, socket } from '../utils';
 
 const HomePassenger = () => {
   const {
@@ -18,20 +18,33 @@ const HomePassenger = () => {
     handleCtaClick
   } = useHeader();
 
+  const [nextTrips, setNextTrips] = useState([1]);
+
+  useEffect(() => {
+    socket.on('newTrip', data => {
+      console.log(data.data);
+
+      setNextTrips([...nextTrips, data.data]);
+    });
+
+    return () => {
+      socket.off();
+    };
+  }, [nextTrips]);
+
   return (
     <Layout>
       <main className='homePassenger homePassenger__container'>
         <Header text='Home Pasajero' />
 
         <div className='homePassenger__content'>
-          <NextTrips />
+          <NextTrips nextTrips={nextTrips} />
           <PassedTrips />
-        </div>
 
-        <div className='homePassenger__change-view'>
-          <FilledButton text={ctaText} color={colors?.lightPink} clickHandler={handleCtaClick} />
+          <div className='homePassenger__change-view'>
+            <FilledButton text={ctaText} color={colors?.lightPink} clickHandler={handleCtaClick} />
+          </div>
         </div>
-
       </main>
     </Layout>
   );

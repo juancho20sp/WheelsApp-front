@@ -16,10 +16,11 @@ const getFromLocalStorage = (keyName) => {
 };
 
 export const userSlice = createSlice({
-  name: 'login',
+  name: 'user',
   initialState: getFromLocalStorage('userSlice') ? getFromLocalStorage('userSlice') : {
     userData: {},
-    selectedVehicle: ''
+    selectedVehicle: '',
+    isRegisteredToRealtime: false,
   },
   reducers: {
     setUserData: (state, action) => {
@@ -34,13 +35,23 @@ export const userSlice = createSlice({
         state.selectedVehicle = action.payload;
         saveToLocalStorage(state);
       }
+    },
+
+    setRegisteredToRealTime: (state, action) => {
+      if (action.payload) {
+
+        console.log('payload', action.payload);
+        state.isRegisteredToRealtime = action.payload;
+        saveToLocalStorage(state);
+      }
     }
   },
 });
 
 export const {
   setUserData,
-  setSelectedVehicle
+  setSelectedVehicle,
+  setRegisteredToRealTime
 } = userSlice.actions;
 
 export default userSlice.reducer;

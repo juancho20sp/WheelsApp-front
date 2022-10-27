@@ -8,7 +8,8 @@
     #{--container-height}: 100%;
     #{--content-border-radius}: 16px;
     #{--content-border}: unset;
-    #{--content-margin-top}: 1rem;
+    #{--content-height}: 80%;
+    #{--content-margin-top}: unset;
     #{--content-max-width}: unset;
     #{--content-padding}: 8px;
 
@@ -16,7 +17,7 @@
         #{--change-view-display}: none;
         #{--container-max-width}: 70vw;
         #{--content-border}: 2px solid $light-pink;
-        #{--content-margin-top}: 5rem;
+        #{--content-margin-top}: 3rem;
     }
 
     @include bp(lg) {
@@ -34,14 +35,15 @@
     }
 
     &__content {
+        align-items: center;
         border-radius: var(--content-border-radius);
         border: var(--content-border);
-        align-items: center;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        height: var(--content-height); 
         margin: var(--content-margin-top) auto 0;
         max-width: var(--container-max-width);
+        overflow: scroll;
         padding: var(--content-padding) 0;
     }
 

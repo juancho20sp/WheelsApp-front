@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // SCSS colors
 import colors from '../scss/utils/_variables.scss';
@@ -10,28 +10,40 @@ import { Layout } from '.';
 import { Header, NextTrips, PassedTrips, FilledButton } from '../components';
 
 // Hooks
-import { useHeader } from '../utils';
+import { useHeader, socket } from '../utils';
 
-const HomeDriver= () => {
+const HomeDriver = () => {
   const {
     ctaText,
     handleCtaClick
   } = useHeader();
 
-  return ( 
+  const [nextTrips, setNextTrips] = useState([1]);
+
+  useEffect(() => {
+    socket.on('newTrip', data => {
+      setNextTrips([...nextTrips, data.data]);
+    });
+
+    return () => {
+      socket.off();
+    };
+  }, [nextTrips]);
+
+  return (
     <Layout>
       <main className='homeDriver homeDriver__container'>
         <Header text='Home Conductor' />
 
         <div className='homeDriver__content'>
-          <NextTrips />
+          <NextTrips nextTrips={nextTrips} />
           <PassedTrips />
-        </div>
 
-        <div className='homeDriver__change-view'>
-          <FilledButton text={ctaText} color={colors?.lightPink} clickHandler={handleCtaClick} />
+          <div className='homeDriver__change-view'>
+            <FilledButton text={ctaText} color={colors?.lightPink} clickHandler={handleCtaClick} />
+          </div>
+          <FilledButton text={'Test realtime'} color={colors?.lightBlue} clickHandler={() => socket.emit('newTripAdded', `Holi ${new Date().getMilliseconds()}`)} />
         </div>
-
       </main>
     </Layout>
   );

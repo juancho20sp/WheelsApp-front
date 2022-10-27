@@ -11,5 +11,6 @@ export {
 
 export {
     setUserData,
-    setSelectedVehicle
+    setSelectedVehicle,
+    setRegisteredToRealTime
 } from './slices/userSlice';

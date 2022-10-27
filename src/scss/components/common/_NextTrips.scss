@@ -1,4 +1,5 @@
 .nextTrips {
+    #{--cards-gap}: 15px;
     #{--container-margin-block-start}: 20px;
     #{--container-width}: 80%;
     #{--date-font-color}: #353535;
@@ -10,6 +11,8 @@
 
     &__container {
         border: 2px solid var(--container-border-color);
+        display: flex;
+        flex-direction: column;
         margin-block-start: var(--container-margin-block-start);
         width: var(--container-width);
     }
@@ -26,5 +29,11 @@
         font-size: var(--date-font-size);
         margin-block-end: var(--date-margin-block-end);
         text-align: start;
+    }
+
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        gap: var(--cards-gap);
     }
 }
