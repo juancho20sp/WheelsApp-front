@@ -7,3 +7,4 @@ export { default as Layout } from './Layout';
 export { default as Profile } from './Profile';
 export { default as PageNotFound } from './PageNotFound';
 export { default as HomeDriver } from './HomeDriver';
+export { default as Record } from './Record';

@@ -14,7 +14,9 @@ import {
   HomePassenger, 
   Profile, 
   PageNotFound, 
-  HomeDriver } from './views';
+  HomeDriver,
+  Record
+ } from './views';
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route exact path={UserRoutes.home.path} element={<HomePassenger />}></Route>
+            <Route exact path={UserRoutes.record.path} element={<Record />}></Route>
             <Route exact path={UserRoutes.profile.path} element={<Profile />}></Route>
           </Route>
 

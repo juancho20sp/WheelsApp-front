@@ -19,10 +19,10 @@ const UserRoutes = {
     path: '/profile',
     name: 'profile',
   },
-  historial: {
+  record: {
     id: 4,
-    path: '/historial',
-    name: 'historial',
+    path: '/record',
+    name: 'record',
   },
   settings: {
     id: 5,

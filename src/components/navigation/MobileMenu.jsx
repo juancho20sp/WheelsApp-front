@@ -28,7 +28,7 @@ const MobileMenu = () => {
         <li onClick={() => handleNavItemClick(UserRoutes.profile.path)}>
           <NavigationIcon icon={<FaRegUser className='mobileMenu__icon mobileMenu__icon--user' />} text='Perfil' />
         </li>
-        <li onClick={() => handleNavItemClick(UserRoutes.historial.path)}>
+        <li onClick={() => handleNavItemClick(UserRoutes.record.path)}>
           <NavigationIcon icon={<IoRefreshOutline className='mobileMenu__icon' />} text='Historial' />
         </li>
         {/* <li onClick={() => handleNavItemClick(UserRoutes.settings.path)}>

@@ -28,7 +28,7 @@ const BurgerMenu = () => {
       <h2>Home {currentRole === 'DRIVER' ? 'Conductor' : 'Pasajero'}</h2>
       <a onClick={() => handleNavItemClick(UserRoutes.home.path)}>Home</a>
       <a onClick={() => handleNavItemClick(UserRoutes.profile.path)}>Perfil</a>
-      <a onClick={() => handleNavItemClick(UserRoutes.historial.path)}>Historial</a>
+      <a onClick={() => handleNavItemClick(UserRoutes.record.path)}>Historial</a>
       {/* <a onClick={() => handleNavItemClick(UserRoutes.settings.path)}>Settings</a> */}
 
     </Menu>
