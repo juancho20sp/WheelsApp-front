@@ -5,14 +5,21 @@
     #{--border-color}: unset;
     #{--container-height}: 4rem;
     #{--container-justify-content}: center;
+    #{--cta-display}: none;
+    #{--cta-font-color}: #fff;
+    #{--cta-font-size}: 16px;
+    #{--cta-font-weight}: 600;
+    #{--cta-margin-inline-end}: 3rem;
     #{--title-font-color}: #fff;
     #{--title-font-size}: 25px;
     #{--title-margin-inline-start}: unset;
     #{--title-padding-block-end}: 3px;
     #{--title-padding-inline-end}: 15px;
 
+
     @include bp(md) {
-        #{--container-justify-content}: flex-start;
+        #{--container-justify-content}: space-between;
+        #{--cta-display}: block;
         #{--title-margin-inline-start}: 7rem;
     }
 
@@ -32,5 +39,18 @@
         padding-block-end: var(--title-padding-block-end);
         padding-inline-end: var(--title-padding-inline-end);
         width: fit-content;
+    }
+
+    &__cta {
+        color: var(--cta-font-color);
+        display: var(--cta-display);
+        font-size: var(--cta-font-size);
+        font-weight: var(--cta-font-weight);
+        margin-inline-end: var(--cta-margin-inline-end);
+
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 }

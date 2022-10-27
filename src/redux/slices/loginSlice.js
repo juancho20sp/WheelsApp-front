@@ -47,7 +47,7 @@ export const loginSlice = createSlice({
         state.userId = decodedJwt.sub;
         state.userRoles = decodedJwt.claims;
         state.currentRole = decodedJwt.claims.includes('DRIVER') ? 'DRIVER' : 'PASSENGER';
-        state.isDriver = decodedJwt.claims.includes('DRIVER') ? true: false;
+        state.isDriver = decodedJwt.claims.includes('DRIVER') ? true : false;
 
         saveToLocalStorage(state);
       }

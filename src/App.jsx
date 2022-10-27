@@ -7,7 +7,14 @@ import { UserRoutes } from './utils/';
 import { ProtectedRoute, UnprotectedRoute } from './components';
 
 // Views
-import { Test, SignUp, Login, HomePassenger, Profile, PageNotFound } from './views';
+import { 
+  Test, 
+  SignUp, 
+  Login, 
+  HomePassenger, 
+  Profile, 
+  PageNotFound, 
+  HomeDriver } from './views';
 
 function App() {
   return (
@@ -19,6 +26,10 @@ function App() {
             <Route exact path={UserRoutes.signUp.path} element={<SignUp />}></Route>
           </Route>
 
+          {/* ONLY FOR DRIVERS */}
+          <Route element={<ProtectedRoute onlyForDrivers={true} />}>
+            <Route exact path={UserRoutes.homeDriver.path} element={<HomeDriver />}></Route>
+          </Route>
 
           <Route element={<ProtectedRoute />}>
             <Route exact path={UserRoutes.home.path} element={<HomePassenger />}></Route>

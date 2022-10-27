@@ -1,0 +1,43 @@
+@import '../utils/mixins';
+
+.homeDriver {
+    #{--container-background-color}: #e0e0e0;
+    #{--container-height}: 100%;
+    #{--content-border-radius}: 16px;
+    #{--content-max-width}: unset;
+    #{--content-border}: unset;
+    #{--content-margin-top}: 1rem;
+    #{--content-padding}: 8px;
+
+    @include bp(md) {
+        #{--container-max-width}: 70vw;
+        #{--content-border}: 2px solid $light-pink;
+        #{--content-margin-top}: 5rem;
+    }
+
+    @include bp(lg) {
+        #{--container-max-width}: 60vw;
+    }
+
+    @include bp(xl) {
+        #{--container-max-width}: 50vw;
+    }
+
+
+    &__container {
+        background-color: var(--container-background-color);
+        height: var(--container-height);
+    }
+
+    &__content {
+        border-radius: var(--content-border-radius);
+        border: var(--content-border);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: var(--content-margin-top) auto 0;
+        max-width: var(--container-max-width);
+        padding: var(--content-padding) 0;
+    }
+}

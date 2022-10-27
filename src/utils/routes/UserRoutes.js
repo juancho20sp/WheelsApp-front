@@ -25,9 +25,14 @@ const UserRoutes = {
     name: 'historial',
   },
   settings: {
-    id: 4,
+    id: 5,
     path: '/settings',
     name: 'settings',
+  },
+  homeDriver: {
+    id: 6,
+    path: '/driver',
+    name: 'driver',
   },
 };
 
